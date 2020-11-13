@@ -16,7 +16,7 @@ jobs:
         os: [ubuntu-latest]
         jdk: [8, 11]
     runs-on: ${{ matrix.os }}
-    if: ${{ github.event_name == 'push' }}
+    if: ${{ github.event_name == 'push' || (matrix.os == 'ubuntu-latest' && matrix.jdk == 8) }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
